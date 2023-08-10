@@ -1,0 +1,19 @@
+" NAVIGATION & FILE CONFIGURATION
+Plug 'scrooloose/nerdtree'
+Plug 'ludovicchabant/vim-gutentags' " Auto indexes ctags in the background
+
+" CODING
+Plug 'joshdick/onedark.vim'
+Plug 'tpope/vim-surround'
+
+" SYNTAX HIGHLIGHTING
+Plug 'sheerun/vim-polyglot'
+
+" LANGUAGE SPECIFICS
+
+" Rails & Ruby dev
+Plug 'tpope/vim-rails'
+Plug 'kurko/autocoder.vim' " Ruby code generator
+
+" Javascript
+Plug 'pangloss/vim-javascript'

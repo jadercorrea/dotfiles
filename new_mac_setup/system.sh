@@ -29,6 +29,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/th
 echo "Copying dotfiles from Github"
 git clone git@github.com:jadercorrea/dotfiles.git .dotfiles
 
-cd .dotfiles
+cd ~/.dotfiles
 ln -s ~/.dotfiles/zsh/p10k.zsh ~/.p10k.zsh
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc

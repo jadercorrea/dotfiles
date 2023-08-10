@@ -1,0 +1,58 @@
+" PLUGIN MANAGER
+" Install vim-plug if not found
+if has("nvim") " neovim?
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
+else
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  endif
+endif
+
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
+" CONFIGURATION
+syntax on                         " Turn on syntax highlighting.
+
+set number                        " Show line numbers.
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+set backspace=indent,eol,start    " Intuitive backspacing.
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+
+let mapleader = ","
+
+map <Leader>s <ESC>:w<CR> 	  " Save by pressing ,s instead of :w
+map <leader>t :tabnew<cr> 	  " New tab by pressing ,t
+
+nmap <C-s> <ESC>:w<CR> 		  " Save by pressing ctrl+s
+nmap <CR> :nohlsearch<CR>	  " Enter clears search highlight
+
+noremap <C-c> "*y 		  " Copy by pressing ctrl+c
+
+" Resizing
+nnoremap <C-h> :vertical resize +5<cr>
+nnoremap <C-l> :vertical resize -5<cr>
+nnoremap <C-k> :resize +5<cr>
+nnoremap <C-j> :resize -5<cr>
+
+" Misc
+nnoremap <leader>ds vf"hd 	  " Delete remaining chars from a string
+
+" PLUGINS
+" loads the plugins listed in ~/.vim.plugins
+call plug#begin('~/.vim/plugins')
+source ~/.vim.plugins
+call plug#end()
+
+" CtrlP
+map <leader>e :CtrlPClearCache<cr>\|:CtrlP<cr>
+
+" Nerdtree
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle %<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
