@@ -1,4 +1,5 @@
 # APPS
+
 gui_apps=(
   alfred
   bartender
@@ -32,8 +33,8 @@ brew install ${service_apps[@]}
 brew cleanup
 
 # APP CONFIGURATIONS
-# Vim & Neovim
 
+# Vim & Neovim
 cd ~/.dotfiles
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 mkdir -p ~/.config/nvim
@@ -45,7 +46,12 @@ ln -s ~/.dotfiles/vim/vim.plugins ~/.vim.plugins
 # Legit - will promp for [y/N]
 legit --install
 
+# Python neovim module
+# uses /opt/homebrew/bin/python3
+python3 -m pip install --user --upgrade pynvim
+
 # LANGUAGE INSTALLATIONS
+
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
 asdf global nodejs latest

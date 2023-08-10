@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'
 
 if has('nvim')
   Plug 'github/copilot.vim'
+  Plug 'madox2/vim-ai'
 endif
 
 " SYNTAX HIGHLIGHTING
