@@ -17,6 +17,7 @@ autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " CONFIGURATION
 syntax on                         " Turn on syntax highlighting.
 
+" options
 set number                        " Show line numbers.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
@@ -24,14 +25,18 @@ set backspace=indent,eol,start    " Intuitive backspacing.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
+"variables
 let mapleader = ","
 
+" all modes recursive mappings
 map <Leader>s <ESC>:w<CR> 	  " Save by pressing ,s instead of :w
 map <leader>t :tabnew<cr> 	  " New tab by pressing ,t
 
+" normal mode recursive mappings
 nmap <C-s> <ESC>:w<CR> 		  " Save by pressing ctrl+s
 nmap <CR> :nohlsearch<CR>	  " Enter clears search highlight
 
+" all modes non-recursive mappings
 noremap <C-c> "*y 		  " Copy by pressing ctrl+c
 
 " Resizing

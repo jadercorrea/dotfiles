@@ -6,6 +6,10 @@ Plug 'ludovicchabant/vim-gutentags' " Auto indexes ctags in the background
 Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-surround'
 
+if has('nvim')
+  Plug 'github/copilot.vim'
+endif
+
 " SYNTAX HIGHLIGHTING
 Plug 'sheerun/vim-polyglot'
 
