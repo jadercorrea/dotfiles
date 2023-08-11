@@ -11,6 +11,7 @@ gui_apps=(
   datagrip
   warp
   iterm2
+  slack
 )
 
 # Install apps to /Users/$user/Applications
