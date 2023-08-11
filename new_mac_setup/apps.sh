@@ -53,6 +53,14 @@ python3 -m pip install --user --upgrade pynvim
 
 # LANGUAGE INSTALLATIONS
 
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add nodejs
 asdf install nodejs latest
 asdf global nodejs latest
+
+asdf plugin add erlanj
+asdf install erlang latest
+asdf global erlang latest
+
+asdf plugin add elixir
+asdf install elixir latest
+asdf global elixir latest
