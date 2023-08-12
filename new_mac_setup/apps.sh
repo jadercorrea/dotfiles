@@ -64,3 +64,10 @@ asdf global erlang latest
 asdf plugin add elixir
 asdf install elixir latest
 asdf global elixir latest
+
+
+# FRAMEWORK INSTALLATIONS
+
+# Phoenix
+mix local.hex                     # will promp for [y/N]
+mix archive.install hex phx_new   # will promp for [y/N]
