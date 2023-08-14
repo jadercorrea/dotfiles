@@ -9,6 +9,7 @@ echo "Git config"
 
 git config --global user.name "Jader Correa"
 git config --global user.email jadercorrea.hv@gmail.com
+git config --global --add --bool push.autoSetupRemote true
 
 echo "Installing git utilities..."
 brew install legit
