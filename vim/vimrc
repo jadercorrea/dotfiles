@@ -17,6 +17,8 @@ autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " CONFIGURATION
 syntax on                         " Turn on syntax highlighting.
 
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
+
 " options
 set number                        " Show line numbers.
 set incsearch                     " Highlight matches as you type.
@@ -61,3 +63,11 @@ map <leader>e :CtrlPClearCache<cr>\|:CtrlP<cr>
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle %<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" vim-ai
+" complete text on the current line or in visual selection
+map <C-q> :AIChat %<CR>
+
+let g:vim_ai_chat = {}
+let g:vim_ai_chat.options = {}
+let g:vim_ai_chat.options.model = 'gpt-4-0125-preview'

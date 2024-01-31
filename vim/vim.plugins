@@ -1,6 +1,5 @@
 " NAVIGATION & FILE CONFIGURATION
 Plug 'scrooloose/nerdtree'
-Plug 'ludovicchabant/vim-gutentags' " Auto indexes ctags in the background
 
 " CODING
 Plug 'joshdick/onedark.vim'
