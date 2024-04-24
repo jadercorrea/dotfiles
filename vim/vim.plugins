@@ -1,5 +1,6 @@
 " NAVIGATION & FILE CONFIGURATION
 Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " CODING
 Plug 'joshdick/onedark.vim'
@@ -15,9 +16,17 @@ Plug 'sheerun/vim-polyglot'
 
 " LANGUAGE SPECIFICS
 
-" Rails & Ruby dev
+" Elixir
+Plug 'jadercorrea/elixir_generator.vim'
+Plug 'mhinz/vim-mix-format'
+
+" Rails & Ruby
 Plug 'tpope/vim-rails'
-Plug 'kurko/autocoder.vim' " Ruby code generator
+Plug 'kurko/autocoder.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
+Plug 'jadercorrea/vim-js-generator'
+
+" Testing
+Plug 'janko-m/vim-test'
