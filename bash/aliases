@@ -1,0 +1,11 @@
+# System
+
+alias x='exit'
+alias ll='ls -caralho'
+alias .='cd ~/'
+alias ..='cd ..'
+alias ip='ipconfig getifaddr en0'
+
+function grepp(){
+  grep -Rni --exclude=".//_build*" --exclude=".//erl_crash.dump*" --exclude=".//deps*" --exclude=".//node_modules*" --exclude=".//db/data*" --exclude=".//tmp*" --exclude=".//vendor*" --exclude=".//coverage*" --exclude=".//log*" --exclude=".//tag*" --exclude=".//spec*/vcr*" --exclude=".//spec*/cassett*" --exclude=".//public/*.js*" --exclude=".//.*" --exclude="./db/data*" --exclude="./tmp*" --exclude="./vendor*" --exclude="./coverage*" --exclude="./log*" --exclude="./tag*" --exclude="./spec*/cassett*" --exclude="./public/*.js*" --exclude="./.*" "$*" ./
+}

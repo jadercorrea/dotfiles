@@ -28,7 +28,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export LANG=en_US.UTF-8
-for file in /Users/jadercorrea/.dotfiles/envs/*; do [ -f "$file" ] && source "$file"; done
+export DOTFILES=~/.dotfiles
+
+source $DOTFILES/bash/aliases
+
+# Import existing env files separately
+for file in $DOTFILES/envs/*; do [ -f "$file" ] && source "$file"; done
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
