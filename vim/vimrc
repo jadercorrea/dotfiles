@@ -26,6 +26,10 @@ set hlsearch                      " Highlight matches.
 set backspace=indent,eol,start    " Intuitive backspacing.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 "variables
 let mapleader = ","
@@ -57,17 +61,26 @@ source ~/.vim.plugins
 call plug#end()
 
 " CtrlP
-map <leader>e :CtrlPClearCache<cr>\|:CtrlP<cr>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Nerdtree
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle %<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" vim-ai
+" Vim-ai
 " complete text on the current line or in visual selection
 map <C-q> :AIChat %<CR>
 
 let g:vim_ai_chat = {}
 let g:vim_ai_chat.options = {}
 let g:vim_ai_chat.options.model = 'gpt-4-0125-preview'
+
+" Tests
+noremap <cr> <ESC>:w<ESC>\|:TestNearest<cr>
+let g:test#javascript#runner = 'jest'
+
+" Formaters
+let g:mix_format_on_save = 1
+map <leader>fe :MixFormat<cr>
