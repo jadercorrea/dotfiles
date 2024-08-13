@@ -43,4 +43,18 @@ else
 fi
 
 # EXPORTS
-export PATH=$PATH:~/.asdf/shims
+export PNPM_HOME="/Users/jadercorrea/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+eval "$(~/.local/bin/mise activate bash)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+# bun completions
+[ -s "/Users/jadercorrea/.bun/_bun" ] && source "/Users/jadercorrea/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
