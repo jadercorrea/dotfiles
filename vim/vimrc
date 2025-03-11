@@ -12,7 +12,7 @@ else
   endif
 endif
 
-autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+autocmd VimEnter * PlugUpdate --sync | source $MYVIMRC
 
 " CONFIGURATION
 syntax on                         " Turn on syntax highlighting.

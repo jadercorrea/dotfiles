@@ -25,7 +25,7 @@ Plug 'kurko/autocoder.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'jadercorrea/vim-js-generator'
+" Plug 'jadercorrea/vim-js-generator'
 
 " Testing
 Plug 'janko-m/vim-test'
