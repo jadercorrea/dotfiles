@@ -82,8 +82,9 @@ noremap <cr> <ESC>:w<ESC>\|:TestNearest<cr>
 let g:test#javascript#runner = 'jest'
 
 " Formaters
-let g:mix_format_on_save = 1
-map <leader>fe :MixFormat<cr>
+" let g:mix_format_on_save = 1
+" let g:mix_format_silent_errors = 1
+" map <leader>fe :MixFormat<cr>
 
 " Functions
 " rename current file

@@ -7,7 +7,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-surround'
 
 if has('nvim')
-  Plug 'madox2/vim-ai'
+" Plug 'madox2/vim-ai'
 endif
 
 " SYNTAX HIGHLIGHTING

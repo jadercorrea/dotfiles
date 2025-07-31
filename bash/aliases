@@ -6,6 +6,23 @@ alias .='cd ~/'
 alias ..='cd ..'
 alias ip='ipconfig getifaddr en0'
 
-function grepp(){
-  grep -Rni --exclude=".//_build*" --exclude=".//erl_crash.dump*" --exclude=".//deps*" --exclude=".//node_modules*" --exclude=".//db/data*" --exclude=".//tmp*" --exclude=".//vendor*" --exclude=".//coverage*" --exclude=".//log*" --exclude=".//tag*" --exclude=".//spec*/vcr*" --exclude=".//spec*/cassett*" --exclude=".//public/*.js*" --exclude=".//.*" --exclude="./db/data*" --exclude="./tmp*" --exclude="./vendor*" --exclude="./coverage*" --exclude="./log*" --exclude="./tag*" --exclude="./spec*/cassett*" --exclude="./public/*.js*" --exclude="./.*" "$*" ./
+function grepp(){ 
+  grep -Rni \
+  --exclude-dir=".git" \
+  --exclude-dir="node_modules" \
+  --exclude-dir="_build" \
+  --exclude-dir="erl_crash.dump" \
+  --exclude-dir="deps" \
+  --exclude-dir="db" \
+  --exclude-dir="tmp" \
+  --exclude-dir="vendor" \
+  --exclude-dir="coverage" \
+  --exclude-dir="log" \
+  --exclude-dir="tag" \
+  --exclude-dir="spec" \
+  "$@" .
+}
+
+function js_format(){
+  git diff --name-only --diff-filter=AM origin/main...HEAD | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$' | xargs npx prettier --write
 }
