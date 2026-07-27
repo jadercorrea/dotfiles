@@ -60,6 +60,11 @@ call plug#begin('~/.vim/plugins')
 source ~/.vim.plugins
 call plug#end()
 
+" GPTCode setup
+if has('nvim')
+  lua require('gptcode').setup()
+endif
+
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -69,17 +74,11 @@ let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle %<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Vim-ai
-" complete text on the current line or in visual selection
-map <C-q> :AIChat %<CR>
-
-let g:vim_ai_chat = {}
-let g:vim_ai_chat.options = {}
-let g:vim_ai_chat.options.model = 'gpt-4-0125-preview'
 
 " Tests
 noremap <cr> <ESC>:w<ESC>\|:TestNearest<cr>
 let g:test#javascript#runner = 'jest'
+let g:test#elixir#runner = 'mix'
 
 " Formaters
 " let g:mix_format_on_save = 1
