@@ -76,7 +76,7 @@ map <C-n> :NERDTreeToggle %<CR>
 
 
 " Tests
-noremap <cr> <ESC>:w<ESC>\|:TestNearest<cr>
+nnoremap <cr> :w<CR>\|:TestNearest<CR>
 let g:test#javascript#runner = 'jest'
 let g:test#elixir#runner = 'mix'
 
