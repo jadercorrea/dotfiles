@@ -6,8 +6,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Suppress gitstatus errors
+export GITSTATUS_LOG_LEVEL=FATAL
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jadercorrea/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_DISABLE_COMPFIX="true"
@@ -21,44 +24,47 @@ plugins=(
   docker-compose
 )
 
-source $ZSH/oh-my-zsh.sh
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -r "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
+[ -r "$HOME/.dotfiles/zsh/p10k.zsh" ] && source "$HOME/.dotfiles/zsh/p10k.zsh"
 
 # User configuration
 
-export LANG=en_US.UTF-8
-export DOTFILES=~/.dotfiles
+export DOTFILES="$HOME/.dotfiles"
+export PATH="$DOTFILES/bin:$PATH"
 
-source $DOTFILES/bash/aliases
+[ -r "$DOTFILES/bash/aliases" ] && source "$DOTFILES/bash/aliases"
 
-# Import existing env files separately
-for file in $DOTFILES/envs/*; do [ -f "$file" ] && source "$file"; done
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
+if [ -d "$DOTFILES/envs" ]; then
+  for file in "$DOTFILES/envs"/*; do
+    [ -f "$file" ] && source "$file"
+  done
 fi
 
-# EXPORTS
-export PNPM_HOME="/Users/jadercorrea/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+ulimit -n 65536 2>/dev/null || true
 
-eval "$(~/.local/bin/mise activate bash)"
-export PATH="$HOME/.local/share/mise/shims:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/xata/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$HOME/.kimi-code/bin:$PATH"
+
+alias memclean="$HOME/.local/bin/mem-clean.sh"
+alias memstatus="$HOME/.local/bin/mem-status.sh"
+alias gc="$HOME/workspace/gptcode/cli/gptcode"
 
 # bun completions
-[ -s "/Users/jadercorrea/.bun/_bun" ] && source "/Users/jadercorrea/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Google Cloud SDK
+[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ] &&
+  source "$HOME/google-cloud-sdk/path.zsh.inc"
+[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ] &&
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# GPTCode feedback hook
+[ -f "$HOME/.gptcode/feedback_hook.zsh" ] &&
+  source "$HOME/.gptcode/feedback_hook.zsh"
+
+# Point cmux wrapper to the real codex binary instead of the mise shim
+export CMUX_CUSTOM_CODEX_PATH="$HOME/.local/share/mise/installs/node/22.22.0/bin/codex"

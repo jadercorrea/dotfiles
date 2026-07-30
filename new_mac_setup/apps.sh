@@ -22,7 +22,6 @@ service_apps=(
   coreutils
   curl
   asdf
-  tmux
   tree
   legit
 )
