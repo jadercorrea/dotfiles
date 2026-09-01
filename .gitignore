@@ -1,1 +1,3 @@
 envs
+.telegram_notify_config
+.agent-cache/

@@ -6,8 +6,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-surround'
 
-if has('nvim')
-" Plug 'madox2/vim-ai'
+" AI Assistants
+if isdirectory(expand('~/workspace/gptcode/cli/neovim'))
+  Plug '~/workspace/gptcode/cli/neovim'
 endif
 
 " SYNTAX HIGHLIGHTING
@@ -21,11 +22,9 @@ Plug 'mhinz/vim-mix-format'
 
 " Rails & Ruby
 Plug 'tpope/vim-rails'
-Plug 'kurko/autocoder.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-" Plug 'jadercorrea/vim-js-generator'
 
 " Testing
 Plug 'janko-m/vim-test'

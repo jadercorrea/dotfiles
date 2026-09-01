@@ -2,7 +2,6 @@
 
 alias x='exit'
 alias ll='ls -caralho'
-alias .='cd ~/'
 alias ..='cd ..'
 alias ip='ipconfig getifaddr en0'
 
@@ -24,5 +23,35 @@ function grepp(){
 }
 
 function js_format(){
-  git diff --name-only --diff-filter=AM origin/main...HEAD | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$' | xargs npx prettier --write
+  local files=$(git diff --name-only --diff-filter=AM origin/main...HEAD | grep -E '\.(js|jsx|ts|tsx|json|css|scss|md)$')
+
+  if [ -z "$files" ]; then
+    echo "⚠️  Nenhum arquivo JS/TS/JSON/CSS/MD modificado encontrado entre origin/main e HEAD"
+    echo "💡 Dica: Certifique-se de ter commits na branch atual ou use 'js_format_all' para formatar tudo"
+    return 1
+  fi
+
+  echo "🔧 Formatando arquivos:"
+  echo "$files" | sed 's/^/  - /'
+
+  echo "$files" | xargs npx prettier --write
+
+  if [ $? -eq 0 ]; then
+    echo "✅ Formatação concluída com sucesso!"
+  else
+    echo "❌ Erro na formatação"
+    return 1
+  fi
+}
+
+function js_format_all(){
+  echo "🔧 Formatando todos os arquivos JS/TS/JSON/CSS/MD..."
+  npx prettier --write "**/*.{js,jsx,ts,tsx,json,css,scss,md}" --ignore-path .gitignore
+
+  if [ $? -eq 0 ]; then
+    echo "✅ Formatação de todos os arquivos concluída!"
+  else
+    echo "❌ Erro na formatação"
+    return 1
+  fi
 }
