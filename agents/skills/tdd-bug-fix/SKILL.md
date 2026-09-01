@@ -1,7 +1,6 @@
 ---
 name: tdd-bug-fix
 description: Enforce TDD when fixing bugs - write a failing test first, then make it pass. Use when about to fix a bug, correct broken behavior, or resolve an issue in production code.
-title: TDD Bug Fix
 ---
 
 # Test-Driven Bug Fixing
@@ -9,6 +8,8 @@ title: TDD Bug Fix
 When fixing bugs, you MUST follow Kent Beck's TDD discipline: write a failing test
 first, then make it pass. There is no world in which production code changes
 without a corresponding test change.
+
+Before changing a test, fixture, configuration file, or production file, load and follow `$git-worktree-workflow`. The failing test and the fix must be created and verified in the demand's dedicated branch and worktree.
 
 ## When to Activate
 

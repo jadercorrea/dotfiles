@@ -1,12 +1,13 @@
 ---
 name: git-commit
 description: Stage and commit git changes with conventional commit messages. Use when user wants to commit changes, or asks to save their work.
-title: Git Commit
 ---
 
 # Git Commit Workflow
 
 Stage all relevant changes, and create a conventional commit following patterns below.
+
+Before staging, load and follow `$git-worktree-workflow`. Confirm that the current directory is the dedicated worktree for this demand, that its branch is not the discovered base branch, and that it is not owned by another agent or front. Review status and diff, then stage only task-owned paths; never absorb unrelated staged, unstaged, or untracked changes.
 
 ## When to Use
 

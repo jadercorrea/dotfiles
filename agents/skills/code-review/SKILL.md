@@ -1,12 +1,15 @@
 ---
 name: code-review
 description: Conduct thorough code reviews focusing on security, correctness, and maintainability. Prioritizes issues by severity and provides actionable feedback.
-title: Code Review
 ---
 
 # Code Review
 
 Conduct a thorough code review following a structured priority system.
+
+## Repository Isolation
+
+A read-only review may inspect the existing checkout without creating a worktree. If the request includes fixes or the review evolves into any repository edit, stop before the first change and load `$git-worktree-workflow`. Make review fixes only in a dedicated task branch and worktree; never edit the base worktree or a worktree owned by another demand or agent.
 
 ## When to Activate
 
@@ -38,14 +41,14 @@ Conduct a thorough code review following a structured priority system.
 
 Each comment should follow this structure:
 
-```markdown
+````markdown
 **path/to/file.rb:42**
 ```diff
 + def fetch_all!
 ```
 
 The comment text here. Be specific and actionable. [1]
-```
+````
 
 Rules for comments:
 

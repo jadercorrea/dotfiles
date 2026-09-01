@@ -1,7 +1,6 @@
 ---
 name: implement
 description: Full implementation cycle — TDD, code review, design review, Telegram notification, and next-step confirmation. Use for any feature, bugfix, or refactor.
-title: Implement
 ---
 
 # Implementation Workflow
@@ -13,6 +12,10 @@ Standard implementation cycle for all Zapfy work. Follow every step in order. Do
 > - Run `/services-access-prod` for access info to third-party services (Stripe, Pagar.me, Woovi, etc.).
 
 // turbo-all
+
+## Phase 0 — Isolate the Work
+
+Before changing tests, code, configuration, or repository documentation, load and follow `$git-worktree-workflow`. Validate an existing task worktree if one was already created; otherwise create a dedicated task branch and worktree before Phase 1. Perform every later phase inside that task worktree.
 
 ## Phase 1 — Implement with TDD
 
